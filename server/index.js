@@ -153,6 +153,33 @@ app.get('/api/users/auth', auth, async (req, res) => {
      })
 })
 
+app.get('/api/users/logout', auth, async (req, res) => {
+
+     // User.findOneAndUpate({ _id: req.user._id },
+     //      { token: "" }
+     //      , (err, user) => {
+     //           if (err) return res.json({ success: false, err });
+     //           return res.status(200).send({
+     //                success: true
+     //           })
+     //      })
+
+     try {
+          const user = await User.findOneAndUpdate(
+               { _id: req.user._id }
+               , { token: "" }
+          );
+
+          return res.status(200).send({ success: true });
+
+     } catch (error) {
+          console.error(error);
+          return res.json({ success: false, err });
+     }
+
+
+})
+
 
 
 

@@ -117,7 +117,7 @@ userSchema.methods.generateToken = async function (cb) {
 
 }
 
-userSchema.statice.findByToken = async function (token, cb) {
+userSchema.statics.findByToken = async function (token) {
      var user = this;
 
      //user._id + '' = token

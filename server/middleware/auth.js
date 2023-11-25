@@ -34,11 +34,6 @@ let auth = async (req, res, mext) => {
           return res.json({ isAuth: false, error: true });
 
      }
-
-
-
-
-
 }
 
 
